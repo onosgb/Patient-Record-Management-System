@@ -1,0 +1,219 @@
+<app-dashboard-nav>
+  <div class="container">
+      <div id="card">
+
+          <div class="card-header bg-info"> <div fxFlex><h4 class="card-title text-white">Staff dashboard</h4></div> <button mat-raised-button *ngIf="newStaff || edit"  (click)="onSubmit(staffForm.value)" >Submit</button></div>
+
+        <div class="card-body ">
+
+
+              <span *ngIf="isAdmin === true" >  <button *ngIf="!edit"  mat-mini-fab class="float-right mt-0 ml-2" (click)="register()"> <i class="fa fa-plus"></i> </button></span> <button mat-mini-fab class="float-right mt-0 ml-2" (click)="refreshPage()" ><i class="fa fa-users"></i></button>
+
+                <table class="table">
+                    <tbody *ngIf="!viewStaff && !edit">
+                      <tr *ngFor="let staff of staffs">
+                        <td>
+                     <img  width="75" class="img-fluid img-thumbnail"  src="{{staff.Avatar}}"  alt="Avatar" >  {{staff.Title}} {{staff.FirstName}} {{staff.LastName}}
+
+                        </td>
+                        <td><span class="small-font float-right mt-4"> <button mat-button class="bg-primary ml-5 text-white" (click)="callStaff(staff, staff.DoctorId)" ><i class="fa fa-info text-white"></i> Info</button> <button *ngIf="isAdmin === 'true'"  mat-button class="bg-success ml-5 text-white" (click)="editStaff(staff)" ><i class="fa fa-edit text-white" ></i> Edit</button> <button *ngIf="isAdmin === 'true'"  mat-button class="bg-danger ml-5 text-white" (click)="removeStaff(staff)"><i class="fa fa-trash text-white"></i> Delete</button></span></td>
+                      </tr>
+                    </tbody>
+                    <tbody *ngIf="sdetails" class="small-font">
+                        <tr >
+                            <th colspan="11" class="text-center">Staff Information</th>
+                            </tr>
+                      <tr>
+                          <th>Avatar</th>
+                        <th>Title</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Age</th>
+                        <th>Status</th>
+                        <th>Sex</th>
+                        <th>Number</th>
+                        <th>Email</th>
+                      </tr>
+                      <tr>
+                        <td>
+                          <img  width="75" class="img-fluid img-thumbnail"  src="{{sdetails.Avatar}}"  alt="Avatar" >
+
+                        </td>
+                        <td>{{sdetails.Title}}</td>
+                        <td>{{sdetails.FirstName}}</td>
+                        <td>{{sdetails.LastName}}</td>
+                        <td>{{sdetails.Age}}</td>
+                        <td>{{sdetails.MaritalStatus}}</td>
+                        <td>{{sdetails.Sex}}</td>
+                        <td>{{sdetails.PhoneNumber}}</td>
+                        <td>{{sdetails.Email}}</td>
+                      </tr>
+                      <tr class="small-font" >
+                      <th colspan="11" class="text-center">Shool Information</th>
+                      </tr>
+                      <tr class="small-font">
+                        <th colspan="3">School name</th>
+                        <th colspan="2">Year of entry</th>
+                        <th colspan="2">Year of graduation</th>
+                        <th colspan="4">Certificate</th>
+                      </tr>
+                      <tr *ngFor="let skull of sdetails.SchoolQualifications" >
+                        <td colspan="3">{{skull.SchoolName}}</td>
+                        <td colspan="2">{{formatDate(skull.YearOfEntry)}}</td>
+                        <td colspan="2">{{formatDate(skull.YearOfGraduation)}}</td>
+                        <td colspan="4">{{skull.CertificateName}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+
+
+
+
+
+      <form class="form" [formGroup]= "staffForm" *ngIf="newStaff || edit" >
+
+            <div class="text-content-center text-center">
+            <div class="form-group">
+              <mat-form-field>
+                <mat-label>Title</mat-label>
+               <mat-select   formControlName="Title">
+                 <mat-option *ngFor="let item of titles"  [value]="item.title">
+                   {{item.title}}
+                 </mat-option>
+               </mat-select>
+              </mat-form-field>
+              <mat-form-field>
+                  <mat-label>First Name</mat-label>
+                  <input type="text" formControlName="FirstName" matInput>
+                </mat-form-field>
+
+                <mat-form-field>
+                    <mat-label>Last Name </mat-label>
+                    <input type="text" formControlName="LastName" matInput>
+                  </mat-form-field>
+                  <mat-form-field>
+                      <mat-label>Phone Number</mat-label>
+                      <input type="text" formControlName="PhoneNumber" matInput>
+                    </mat-form-field>
+            </div>
+      <div class="form-group">
+          <mat-form-field>
+              <mat-label>Age</mat-label>
+              <input type="text" formControlName="Age" matInput>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Sex</mat-label>
+                <mat-select formControlName="Sex">
+                  <mat-option value="Male">Male</mat-option>
+                  <mat-option value= "Female">Female</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field>
+                  <mat-label>Marital Status</mat-label>
+                  <mat-select formControlName="MaritalStatus">
+                      <mat-option value="Married">Married</mat-option>
+                      <mat-option value= "Single">Single</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Email</mat-label>
+                    <input type="email" formControlName="Email" matInput>
+                  </mat-form-field>
+      </div>
+
+      <div class="form-group">
+
+
+              <mat-form-field>
+                  <mat-label>Position</mat-label>
+                 <mat-select formControlName="Position">
+                   <mat-option *ngFor="let position of positions" [value]="position.PositionName">
+                     {{position.PositionName}}
+                   </mat-option>
+                 </mat-select>
+                </mat-form-field>
+
+                <mat-form-field>
+                  <mat-label>Address</mat-label>
+                  <input type="text" formControlName="Address" matInput>
+                </mat-form-field>
+
+                <mat-form-field  >
+                  <mat-label>Password</mat-label>
+                  <input type="password" formControlName="Password" matInput>
+                </mat-form-field>
+
+                  <mat-label>IsAdmin</mat-label>
+                 <mat-checkbox formControlName="Admin">true</mat-checkbox>
+
+
+                <input #filePicker hidden type="file" (change)="pickPix($event)"  class="form-contentmt-12 mx-auto, md-block">
+                <img  width="100" class="small-font" [src]="staffForm.value.Avatar" class="img-responsive img-circle pointer"  alt="Avatar" (click)="filePicker.click()">
+                <br/>
+                <span *ngIf="!staffForm.value.Avatar"  class="error small-font">{{fileErrorMessage}}</span>
+                <input type="hidden" formControlName="_id">
+
+              </div>
+                <div class="card">
+                  <div class="card-header"> <div fxFlex>Add School attended / Certifications</div> <button *ngIf="isAdmin === 'true'"  mat-mini-fab (click)="addStaff()" ><i class="fa fa-plus"></i></button></div>
+                  <div class="card-body" formArrayName="SchoolQualifications">
+                    <div class="card-content text-content-justify" *ngFor="let staff of staffForm.get('SchoolQualifications')['controls']; index as i" >
+
+                       <div class="row">
+                         <table>
+                           <tbody>
+                              <tr class="" [formGroupName]="i">
+                                  <td>
+                                      <div class="form-group">
+                                          <mat-form-field>
+                                              <mat-label>School name</mat-label>
+                                              <input type="text" formControlName="SchoolName" matInput>
+                                            </mat-form-field>
+                                            <mat-form-field style="width: 20%">
+                                                <mat-label>Year of entry</mat-label>
+                                                <input type="text" [matDatepicker]="picker1" formControlName="YearOfEntry" matInput>
+                                                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                                                <mat-datepicker #picker1></mat-datepicker>
+                                              </mat-form-field>
+
+                                              <mat-form-field style="width: 20%">
+                                                  <mat-label>Year of graduation</mat-label>
+
+                                                    <input matInput [matDatepicker]="picker" formControlName="YearOfGraduation">
+                                                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                    <mat-datepicker #picker></mat-datepicker>
+                                                  </mat-form-field>
+
+
+                                                <mat-form-field>
+                                                    <mat-label>Certificate Obtained</mat-label>
+                                                    <input type="email" formControlName="CertificateName" matInput>
+                                                  </mat-form-field>
+                                      </div>
+                                  </td>
+                                  <td>
+                                     <button class="float-right" mat-button (click)="removeSQl(i)"><i class="fa fa-trash"></i></button>
+
+                                  </td>
+                                </tr>
+                           </tbody>
+
+                         </table>
+
+
+                         </div>
+
+
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+      </form>
+        </div>
+
+      </div>
+
+  </div>
+</app-dashboard-nav>

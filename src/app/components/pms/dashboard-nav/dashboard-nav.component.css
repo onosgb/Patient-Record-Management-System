@@ -1,0 +1,142 @@
+
+@import '~bootstrap/vendor/fontawesome-free/css/all.min.css';
+@import '~bootstrap/css/sb-admin-2.min.css';
+@import '~bootstrap/css/sb-admin-2.min.css';
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.sidenav-container {
+  height: 100%;
+
+}
+
+.container{
+  height: 100vh;
+}
+
+mat-sidenav {
+  width: 250px;
+
+    color: rgb(170, 170, 170);
+
+}
+
+
+
+
+.mat-expansion-panel-body {
+  padding: 0 !important;
+}
+
+.panel-title {
+  color: rgb(180, 176, 176);
+  font-family: "Raleway SemiBold", sans-serif;
+  font-size: 0.8em;
+  padding: 0 !important;
+}
+
+::ng-deep .specific-class > .mat-expansion-indicator:after {
+  color: white !important;
+}
+.menu-href{
+  color: rgb(180, 176, 176);
+}
+
+.dashboard{
+  text-decoration: none;
+  color: rgb(170, 170, 170);
+  font-size: 0.8em;
+}
+
+
+.iconColor{
+  color: rgb(89, 123, 187);  /* fallback for old browsers */
+
+}
+
+.mat-drawer:not(.mat-drawer-side) {
+  position: fixed;
+}
+
+.mat-drawer-backdrop {
+  position: fixed !important;
+}
+.circle {
+  border-radius: 50%;
+}
+
+.container {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.no-v-scroll {
+  height: 100%;
+  overflow-y: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.with-bg {
+
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  max-height: 130px;
+}
+
+.no-shadow {
+  box-shadow: none !important;
+}
+
+::ng-deep .mat-expansion-panel-body {
+  padding: 0px !important;
+  padding-left: 10px !important;
+
+}
+
+/* .header-box-shadow {
+  box-shadow: 0 3px 5px -1px rgba(0,0,0,.2), 0 6px 10px 0 rgba(0,0,0,.14), 0 1px 18px 0 rgba(0,0,0,.12);
+} */
+
+.bottom-to-top {
+  border: 0px;
+  border-right: 1px;
+  border-style: solid;
+  border-image:
+  linear-gradient(to top, #c1c1c1, rgba(0, 0, 0, 0)) 1 100%
+}
+
+.mat-toolbar{
+  background-color: rgb(255, 255, 255);
+  color: white;
+     box-shadow: 3px 0 6px rgba(0,0,0,.24);
+
+}
+
+
+
+
+
+.mat-button{
+  outline: none !important;
+}
+
+.mat-menu-item{
+  outline: none !important;
+}
+
+.mat-icon-button{
+  outline: none !important;
+  color: black;
+}

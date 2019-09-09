@@ -1,0 +1,17 @@
+.small-font {
+  font-size: 14px;
+  font-family: 'Times New Roman', Times, serif;
+}
+.mat-form-field{
+margin-right: 15px;
+margin-left: 5px;
+margin-top: -5px;
+margin-bottom: -5px;
+}
+table {
+  width: 100%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}

@@ -1,0 +1,150 @@
+.form-label-left{
+  width:150px;
+}
+.form-line{
+  padding-top:12px;
+  padding-bottom:12px;
+}
+.form-label-right{
+  width:150px;
+}
+body, html{
+  margin:0;
+  padding:0;
+  background:#fff;
+}
+
+.form-all{
+  margin:0px auto;
+  padding-top:0px;
+  width:690px;
+  color:#000000 !important;
+  font-family:"Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Verdana, sans-serif;
+  font-size:14px;
+}
+
+/* Injected CSS Code */
+/*PREFERENCES STYLE*/
+.form-all {
+font-family: Gill Sans, sans-serif;
+}
+.form-all .qq-upload-button,
+.form-all .form-submit-button,
+.form-all .form-submit-reset,
+.form-all .form-submit-print {
+font-family: Gill Sans, sans-serif;
+}
+.form-all .form-pagebreak-back-container,
+.form-all .form-pagebreak-next-container {
+font-family: Gill Sans, sans-serif;
+}
+.form-header-group {
+font-family: Gill Sans, sans-serif;
+}
+.form-label {
+font-family: Gill Sans, sans-serif;
+}
+
+.form-label.form-label-auto {
+
+display: block;
+float: none;
+text-align: left;
+width: 100%;
+
+}
+
+.form-line {
+margin-top: 12px 36px 12px 36px px;
+margin-bottom: 12px 36px 12px 36px px;
+}
+
+.form-all {
+width: 720px;
+}
+
+.form-label-left,
+.form-label-right,
+.form-label-left.form-label-auto,
+.form-label-right.form-label-auto {
+width: 164px;
+}
+
+.form-all {
+font-size: 14pxpx
+}
+.form-all .qq-upload-button,
+.form-all .qq-upload-button,
+.form-all .form-submit-button,
+.form-all .form-submit-reset,
+.form-all .form-submit-print {
+font-size: 14pxpx
+}
+.form-all .form-pagebreak-back-container,
+.form-all .form-pagebreak-next-container {
+font-size: 14pxpx
+}
+
+.supernova .form-all, .form-all {
+background-color: #fff;
+border: 1px solid transparent;
+}
+
+.form-all {
+color: #000000;
+}
+.form-header-group .form-header {
+color: #000000;
+}
+.form-header-group .form-subHeader {
+color: #000000;
+}
+.form-label-top,
+.form-label-left,
+.form-label-right,
+.form-html,
+.form-checkbox-item label,
+.form-radio-item label {
+color: #000000;
+}
+.form-sub-label {
+color: #1a1a1a;
+}
+
+.supernova {
+background-color: rgba(155,155,155,0.52);
+}
+.supernova body {
+background: transparent;
+}
+
+.form-textbox,
+.form-textarea,
+.form-radio-other-input,
+.form-checkbox-other-input,
+.form-captcha input,
+.form-spinner input {
+background-color: #fff;
+}
+
+.supernova {
+background-image: none;
+}
+#stage {
+background-image: none;
+}
+
+.form-all {
+background-image: none;
+}
+
+.ie-8 .form-all:before { display: none; }
+.ie-8 {
+margin-top: auto;
+margin-top: initial;
+}
+
+/*PREFERENCES STYLE*//*__INSPECT_SEPERATOR__*/.form-multiple-column .form-checkbox-item { width: 320px; }
+
+.form-multiple-column .form-radio-item { width: 90px; }
+/* Injected CSS Code */
